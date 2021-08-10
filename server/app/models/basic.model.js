@@ -4,7 +4,7 @@ module.exports = (sequelize, Sequelize)=>{
 			type: Sequelize.STRING
 		},
 		workdate: {
-			type: Sequelize.DATE
+			type: Sequelize.DATEONLY
 		},
 		count: {
 			type: Sequelize.INTEGER

@@ -56,7 +56,7 @@ exports.findAllApproved = (req, res) => {
 exports.findMsgByUserID= (req, res) => {
 	const id = req.params.userID;
 	uid=[id];
-	db.sequelize.query('SELECT * FROM all_msg WHERE fk_basic=?;', {
+	db.sequelize.query('SELECT * FROM all_msg WHERE fk_basic=? AND state<4 AND state>=0;', {
 		type: QueryTypes.SELECT,
 		replacements: uid
 	})
@@ -74,7 +74,7 @@ exports.findMsgByUserID= (req, res) => {
 // Retrieve all Tutorials from the database.
 exports.findBasicByUserID= (req, res) => {
 	const id = req.params.userID;
-	db.sequelize.query('SELECT * FROM basics WHERE id=?;', {
+	db.sequelize.query('SELECT * FROM all_people WHERE id=?;', {
 		type: QueryTypes.SELECT,
 		replacements: [id]
 	})

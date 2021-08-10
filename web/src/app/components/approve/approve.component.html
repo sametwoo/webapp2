@@ -1,0 +1,47 @@
+<div>
+		<table class='table' *ngIf='msgfull!==undefined'>
+			<thead>
+				<tr>
+					<th scope='col'>name</th>
+					<th scope='col'>leave date</th>
+					<th scope='col'>return date</th>
+					<th scope='col'>place</th>
+					<th scope='col'>reason</th>
+					<th scope='col'>days</th>
+					<th scope='col'>used</th>
+					<th scope='col'>count</th>
+					<th scope='col'>unit</th>
+					<th scope='col'>grade</th>
+					<th scope='col'>workdate</th>
+					<th scope='col'>comment</th>
+					<th scope='col'>operation</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor='let x of msgfull; let i=index'>
+					<td>{{ x.name }}</td>
+					<td>{{ x.date0 }}</td>
+					<td>{{ x.date1 }}</td>
+					<td>{{ x.place }}</td>
+					<td>{{ x.reason }}</td>
+					<td>{{ x.days }}</td>
+					<td>{{ x.used }}</td>
+					<td>{{ x.count }}</td>
+					<td>{{ x.unit }}</td>
+					<td>{{ x.grade }}</td>
+					<td>{{ x.workdate }}</td>
+					<td><input type='text' 
+						[(ngModel)]="x.comment"/>
+					</td>
+					<td>
+						<button class='btn btn-success'
+							(click)='acceptApplication(x, i)'>Accept</button>
+						<button class='btn btn-danger'
+							(click)='denyApplication(x, i)'>Deny</button>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+</div>
+

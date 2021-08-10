@@ -4,30 +4,26 @@ module.exports = app => {
 
   var router = require("express").Router();
 
-  // Create a new Tutorial
+  // Create a new Msg
   router.post("/apply/:userID", apply.createMsg);
-
-  // Retrieve all Tutorials
+  // Retrieve all Approved 
   router.get("/approved/", apply.findAllApproved);
-
-  router.get("/basic/:userID", apply.findBasicByUserID);
-
-  // Retrieve all published Tutorials
+	// Retrieve basic information for :userID
+  router.get("/user/:userID", apply.findBasicByUserID);
+  // Update basic information for userID
   router.put("/user/:userID", apply.updateBasic);
-
-  // Retrieve a single Tutorial with id
+  // Update msg by msg id
   router.put("/apply/:id", apply.updateMsg);
-
-  // Update a Tutorial with id
+  // Retrieve Msg for userID
   router.get("/apply/:userID", apply.findMsgByUserID);
-
+	// Retrieve all Msgs to approve for :role
 	router.get('/check/:role', approve.findMsgByRole);
-
+	// Retrieve all Msgs to approve for :role in :unit
 	router.get('/check/:role/:unit', approve.findMsgByRoleAndUnit);
-
-	router.post('/pass/:userID', approve.updateMsgToPass);
-
-	router.post('/deny/:userID', approve.updateMsgToDeny);
+	// Approve Msg by :role
+	router.post('/pass/:role', approve.updateMsgToPass);
+	// Deny Msg by :role
+	router.post('/deny/:role', approve.updateMsgToDeny);
 
   app.use("/api", router);
 };

@@ -1,0 +1,36 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div>
+	<nav class='navbar navbar-expand navbar-dark bg-dark'>
+		<a href='#' class='navbar-brand' *ngIf='user!==undefined'>{{user.name}}</a>
+		<div class='navbar-nav mr-auto'>
+			<li class='nav-item'>
+				<a routerLink='apply' class='nav-link'>Apply</a>
+			</li>
+			<li class='nav-item'>
+				<a routerLink='approve' class='nav-link'>Approve</a>
+			</li>
+			<li class='nav-item'>
+				<a routerLink='onleave' class='nav-link'>Report</a>
+			</li>
+		</div>
+	</nav>
+	<div class='container mt-3'>
+		<router-outlet></router-outlet>
+	</div>
+</div>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>

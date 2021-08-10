@@ -42,18 +42,17 @@ exports.findMsgByRoleAndUnit = (req, res) => {
 
 
 exports.updateMsgToPass = (req, res) => {
-	const id=req.params.userID;
+	const role=req.params.role;
 
-  if (!req.body.role) {
+  if (!req.body.id) {
     res.status(400).send({
-      message: "Role can not be empty!"
+      message: "id can not be empty!"
     });
     return;
   }
 
   // Create a Msg 
-  msg = {};
-	role=req.body.role;
+	msg=req.body;
 	if(role==1) {
 		msg.a1=Date.now();
 		msg.state=2;
@@ -69,7 +68,7 @@ exports.updateMsgToPass = (req, res) => {
 
   // Save Msg in the database
   Msg.update(msg, {
-			where: {fk_basic: id}
+			where: {id: msg.id}
 		})
     .then(num => {
       if (num == 1) {
@@ -90,38 +89,33 @@ exports.updateMsgToPass = (req, res) => {
 }
 
 exports.updateMsgToDeny = (req, res) => {
-	const id=req.params.userID;
+	const role=req.params.role;
 
-  if (!req.body.role) {
+  if (!req.body.id) {
     res.status(400).send({
-      message: "Role can not be empty!"
+      message: "Id can not be empty!"
     });
     return;
   }
 
   // Create a Msg 
-  msg = {};
-	role=req.body.role;
-	comment=req.body.comment;
+	msg=req.body;
 	if(role==1) {
 		msg.d1=Date.now();
-		msg.c1=comment;
 		msg.state=0;
 	}
 	else if(role==2) {
 		msg.d2=Date.now();
-		msg.c2=comment;
 		msg.state=1;
 	}
 	else if(role==3) {
 		msg.d3=Date.now();
-		msg.c3=comment;
 		msg.state=2;
 	}
 
   // Save Msg in the database
   Msg.update(msg, {
-			where: {fk_basic: id}
+			where: {id: msg.id}
 		})
     .then(num => {
       if (num == 1) {

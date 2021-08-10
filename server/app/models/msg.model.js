@@ -21,17 +21,11 @@ module.exports = (sequelize, Sequelize)=>{
 		d1: {
 			type: Sequelize.DATE
 		},
-		c1: {
-			type: Sequelize.STRING
-		},
 		a2: {
 			type: Sequelize.DATE
 		},
 		d2: {
 			type: Sequelize.DATE
-		},
-		c2: {
-			type: Sequelize.STRING
 		},
 		a3: {
 			type: Sequelize.DATE
@@ -39,7 +33,7 @@ module.exports = (sequelize, Sequelize)=>{
 		d3: {
 			type: Sequelize.DATE
 		},
-		c3: {
+		comment: {
 			type: Sequelize.STRING
 		},
 		state: {

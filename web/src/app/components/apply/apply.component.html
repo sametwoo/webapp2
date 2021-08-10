@@ -1,0 +1,63 @@
+<div class='show'>
+	<div [ngClass]='stateType'
+		*ngIf='stateMessage!==undefined&&stateMessage!==""'>
+			<h4>
+				{{stateMessage}}
+			</h4>
+	</div>
+	<div class='row'>
+		<div class='col-md-8'>
+			<div class='jumbotron notice'>
+				<h3>Notification</h3>
+				<p>1.call your leader as soon as possible</p>
+				<p>2.say something</p>
+				<p>3.no smoking</p>
+			</div>
+		</div>
+		<div class='col-md-4'>
+			<div class='submit-form'>
+				<div class='form-group'>
+					<label for='date0'>Date Leave</label>
+					<input type='text'
+						class='form-control'
+						id='date0'
+						required
+						[(ngModel)]='msg.date0'
+						name='date0'
+					/>
+				</div>
+				<div class='form-group'>
+					<label for='date1'>Date Return</label>
+					<input type='text'
+						class='form-control'
+						id='date1'
+						required
+						[(ngModel)]='msg.date1'
+						name='date1'
+					/>
+				</div>
+				<div class='form-group'>
+					<label for='place'>Place</label>
+					<input type='text'
+						class='form-control'
+						id='place'
+						required
+						[(ngModel)]='msg.place'
+						name='place'
+					/>
+				</div>
+				<div class='form-group'>
+					<label for='reason'>Reason</label>
+					<input type='text'
+						class='form-control'
+						id='reason'
+						required
+						[(ngModel)]='msg.reason'
+						name='reason'
+					/>
+				</div>
+			<button *ngIf='msg.state==0' (click)='commitMsg()' class='btn btn-success'>Submit</button>
+			</div>
+		</div>
+	</div>
+</div>

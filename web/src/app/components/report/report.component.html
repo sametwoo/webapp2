@@ -1,0 +1,25 @@
+<div class='show'>
+	<table class='table' *ngIf='approved!==undefined'>
+		<thead>
+			<tr>
+				<th scope='col'>name</th>
+				<th scope='col'>leave date</th>
+				<th scope='col'>return date</th>
+				<th scope='col'>place</th>
+				<th scope='col'>reason</th>
+				<th scope='col'>phone</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor='let x of approved'>
+				<td>{{ x.name }}</td>
+				<td>{{ x.date0 }}</td>
+				<td>{{ x.date1 }}</td>
+				<td>{{ x.place }}</td>
+				<td>{{ x.reason }}</td>
+				<td>{{ x.phone0 }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
